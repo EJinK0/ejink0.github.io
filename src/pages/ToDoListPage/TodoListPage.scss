@@ -1,0 +1,77 @@
+$my-red: #cb3636;
+$my-gray: #f0f0f0;
+
+#root {
+    .todo {
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+
+        .new-todo {
+            height: 50px;
+            display: flex;
+            margin-top: 100px;
+            margin-left: 300px;
+            margin-right: 300px;
+
+            .new-todo-inp {
+                border-radius: 10px;
+                border: 1px thick;
+                padding-left: 8px;
+                width: 100%;
+
+                input {
+                    font-size: 15px;
+                }
+            }
+
+            .new-todo-btn {
+                width: 90px;
+                background-color: $my-gray;
+                text-align: center;
+                font-size: 15px;
+                margin-left: 7px;
+                border-radius: 10px;
+                border: 1px thick;
+            }
+        }
+
+        .todo-list {
+            align-items: center;
+            justify-content: center;
+            margin: 0 120px 0 120px;
+            background-color: $my-gray;
+            margin-top: 100px;
+        }
+
+        .todoItem {
+            width: 100%;
+            display: flex;
+            align-items: first baseline;
+            border-bottom: 1px solid;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            .radiobtn {
+                margin-right: 10px;
+            }
+
+            .deletebtn {
+                border: none;
+                width: 25px;
+                height: 25px;
+                color: $my-red;
+                background-color: white;
+                margin-left: auto;
+                margin-right: 10px;
+                border-radius: 50px;
+                justify-content: space-between;
+                display: inline-block;
+            }
+
+            .checked {
+                text-decoration-line: line-through;
+            }
+        }
+    }
+}

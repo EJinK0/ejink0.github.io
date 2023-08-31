@@ -1,0 +1,193 @@
+$my-gray: #e7e7e7;
+$my-gray200: #454545;
+$my-gray100: #9D9D9F;
+
+#root {
+    .mainFeed {
+        padding-top: 54px;
+        background-color: white;
+        min-height: 100vh;
+        .wrapper {
+            width: 1000px;
+            margin: 0 auto;
+            padding-top: 30px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            .feed-list {
+                width: 729px;
+                margin-right: 12px;
+                .write-feed {
+                    background-color: white;
+                    display: flex;
+                    align-items: center;
+                    padding: 20px 24px;
+                    border: 1px solid $my-gray;
+                    .profile-image {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 40px;
+                        background-color: $my-gray;
+                        margin-right: 12px;
+                    }
+                    .inp {
+                        flex: 1;
+                        input {
+                            width: 100%;
+                            font-size: 12px;
+                            color: $my-gray;
+                            border: none;
+
+                            &::placeholder {
+                                color: $my-gray;
+                            }
+                        }
+                    }
+                    .get-image {
+                        label {
+                            width: 30px;
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        input {
+                            display: none;
+                        }
+                    }
+                }
+
+                .feed {
+                    border: 1px solid $my-gray;
+                    background-color: white;
+                    margin-top: 25px;
+                    padding: 20px 24px;
+                    .top {
+                        display: flex;
+                        align-items: center;
+                        .profile-image {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 40px;
+                            background-color: $my-gray;
+                            margin-right: 12px;
+                        }
+
+                        .profile-desc {
+                            .nickName {
+                                font-size: 14px;
+                                color: $my-gray200;
+                            }
+                            .timestamp {
+                                font-size: 10px;
+                                color: $my-gray200;
+                                opacity: 0.4;
+                                margin-top: 2px;
+                            }
+                        }
+                    }
+                    
+                    .contents {
+                        margin-top: 48px;
+                        font-size: 12px;
+                        color: $my-gray200;
+                        line-height: 1.8;
+                        .image {
+                            width: 100%;
+                            height: 300px;
+                            background-color: $my-gray;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: cover;
+                            margin-top: 25px;
+                        }
+                    }
+                    .bottom {
+                        display: flex;
+                        align-items: center;
+                        margin-top: 25px;
+
+                        .like,
+                        .comment {
+                            display: flex;
+                            align-items: center;
+                            .asset {
+                                width: 32px;
+                                display: flex;
+                                align-items: center;
+                                margin-right: 12px;
+                            }
+                            .count {
+                                font-size: 16px;
+                                color: $my-gray;
+                            }
+                        }
+
+                        .like {
+                            margin-right: 24px;
+                        }
+                    }
+                }
+            }
+
+            .friend-list {
+                padding: 20px 16px;
+                width: 246px;
+                border: 1px solid $my-gray;
+                background-color: white;
+                position: sticky;
+                top: 84px;
+                
+                .my-profile {
+                    display: flex;
+                    align-items: center;
+
+                    .profile-image {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 40px;
+                        background-color: $my-gray;
+                        margin-right: 12px;
+                    }
+
+                    .nickName {
+                        font-size: 12px;
+                        color: $my-gray200;
+                    }
+                }
+
+                .my-friends {
+                    margin-top: 14px;
+
+                    &>.title {
+                        font-size: 10px;
+                        color: $my-gray200;
+                    }
+
+                    .friend-list-wrapper {
+                        margin-top: 14px;
+                        display: inline;
+                        row-gap: 8px;
+
+                        .friend {
+                            display: flex;
+                            align-items: center;
+                            margin-top: 10px;
+                            .profile-image {
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 40px;
+                                background-color: $my-gray;
+                                margin-right: 12px;
+                            }
+                            .nickName {
+                                font-size: 12px;
+                                color: $my-gray200;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
