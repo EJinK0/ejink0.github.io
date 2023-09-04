@@ -140,7 +140,7 @@ function MainFeed() {
                 </div>
             </div>
 
-            {/* {true && <Detail/>} */}
+            {true && <Detail/>}
         </div>
     )
 }
