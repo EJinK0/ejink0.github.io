@@ -1,12 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../Header/Header';
-import Detail from '../Detail/Detail';
 import './MainFeed.scss';
 import addImage from '../../../images/add-image.svg';
 import feedLikeDac from '../../../images/like-dac.svg';
 import comment from '../../../images/comment.svg';
 
 function MainFeed() {
+    const [messages, setMessages] = useState([]);
+    const [ws, setWs] = useState(null);
+
+    useEffect(() => {
+        // WebSocket 연결 설정
+        const socket = new WebSocket('ws://your-ec2-public-ip:8080');
+
+        socket.onopen = () => {
+            console.log('WebSocket is connected!');
+            socket.send('Hello Server!');
+        };
+
+        socket.onmessage = (event) => {
+            console.log('Received:', event.data);
+            setMessages((prevMessages) => [...prevMessages, event.data]);
+        };
+
+        socket.onclose = () => {
+            console.log('WebSocket is closed!');
+        };
+
+        socket.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+
+        setWs(socket);
+
+        // 컴포넌트 언마운트 시 WebSocket 연결 종료
+        return () => {
+            socket.close();
+        };
+    }, []);
+
     return (
         <div>
             <Header />
@@ -103,7 +135,7 @@ function MainFeed() {
 
                         <div className='my-friends'>
                             <div className='title txt-bold'>
-                                나의친구
+                                현재 참여자
                             </div>
                             <ul className='friend-list-wrapper'>
                                 <li className='friend'>
@@ -139,8 +171,6 @@ function MainFeed() {
                     </div>
                 </div>
             </div>
-
-            {true && <Detail/>}
         </div>
     )
 }

@@ -1,48 +1,47 @@
-import React from 'react';
-import './SNSPage.scss';
-import logo from '../../images/logo.svg';
-import arrow from '../../images/arrow.svg'
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./SNSPage.scss";
+import logo from "../../images/logo.svg";
+import arrow from "../../images/arrow.svg";
+import { Link } from "react-router-dom";
+import Axios from "../../utils/Axios";
+import { history } from "../../utils/history";
 
 function SNSPage() {
-  return (
-      <div className='login'>
-        <div className='wrapper'>
-          <div>
-            <img src={logo} alt='로고'/>
-          </div>
-          <form className='login-contents'>
-            <div className='email-inp custom-inp'>
-              <div className='title txt-bold'>이메일</div>
-              <div className='inp'>
-                <input type='email' placeholder='이메일을 입력해 주세요.' 
-                required />
-              </div>
-            </div>
-            <div className='password-inp custom-inp'>
-              <div className='title txt-bold'>비밀번호</div>
-              <div className='inp'>
-                <input type='password' placeholder='비밀번호를 입력해 주세요.'
-                required />
-              </div>
-            </div>
+    const [nickName, setNickName] = useState('');
+    const loginBtnClick = () => {
+        if(nickName === '') {
+            alert('닉네임을 입력해주세요 !!');
+            return;
+        }
 
-            <Link className='App-link' to='/mainFeed'>
-              <button className='login-btn' type='submit'>로그인 하기</button>
-            </Link>
-          </form>
+        history.navigate('/mainFeed');
+    };
 
-          <Link className='App-link' to="/join">
-            <div className='go-join'>
-              <div className='title txt-bold'>또는 회원가입하기</div>
-              <div className='asset'>
-                <img src={arrow} alt='회원가입하기'/>
-              </div>
+    return (
+        <div className="login">
+            <div className="wrapper">
+                <div>
+                    <img src={logo} alt="로고" />
+                </div>
+                <form className="login-contents">
+                    <div className="email-inp custom-inp">
+                        <div className="title txt-bold">닉네임 입력</div>
+                        <div className="inp">
+                            <input 
+                                type="text"
+                                placeholder="닉네임을 입력해 주세요."
+                                value={nickName}
+                                onChange={(e) => setNickName(e.target.value)}/>
+                        </div>
+                    </div>
+
+                    <button className="login-btn" onClick={loginBtnClick}>
+                        입장 하기
+                    </button>
+                </form>
             </div>
-          </Link>
         </div>
-      </div>
-  );
+    );
 }
 
 export default SNSPage;
