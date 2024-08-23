@@ -11,7 +11,7 @@ function MainFeed() {
 
     useEffect(() => {
         // WebSocket 연결 설정
-        const socket = new WebSocket('ws://your-ec2-public-ip:8080');
+        const socket = new WebSocket('ws://3.36.74.68:8080');
 
         socket.onopen = () => {
             console.log('WebSocket is connected!');
